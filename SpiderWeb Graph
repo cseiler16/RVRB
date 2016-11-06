@@ -1,0 +1,60 @@
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+$(function () {
+
+    Highcharts.chart('container', {
+
+        chart: {
+            polar: true,
+            type: 'line'
+        },
+
+        title: {
+            text: 'Company Average Scores vs. Industry Average Scores',
+            x: -30
+        },
+
+        pane: {
+            size: '80%'
+        },
+
+        xAxis: {
+            categories: ['Work Environment', 'Value Alignment', 'Scheduling', 'Performance Review', 'Social Programming', 'Mentoring'],
+            tickmarkPlacement: 'on',
+            lineWidth: 0
+        },
+
+        yAxis: {
+            gridLineInterpolation: 'polygon',
+            lineWidth: 0,
+            min: 0
+        },
+
+        tooltip: {
+            shared: true,
+            pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+        },
+
+        legend: {
+            align: 'right',
+            verticalAlign: 'top',
+            y: 70,
+            layout: 'vertical'
+        },
+
+        series: [{
+             name: 'Company Average',
+            data: [100, 31, 35, 20, 2, 10],
+            pointPlacement: 'on'
+        }, {
+            name: 'Industry Average',
+            data: [100, 56, 47, 40, 6, 12],
+            pointPlacement: 'on'
+        }]
+
+    });
+});
